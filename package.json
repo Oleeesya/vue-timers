@@ -8,6 +8,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://oleeesya.github.io/vue-timers/",
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^3.2.13",

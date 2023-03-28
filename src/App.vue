@@ -1,30 +1,80 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="container">
+    <div v-for="item of timers" v-bind:key="item.id">
+      <Timer :onAdd="addTimer" />
+    </div>
+    <div class="add" type="button" @click="addTimer">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect x="8.5" width="3" height="20" fill="#9E9E9E" />
+        <rect
+          y="11.5"
+          width="3"
+          height="20"
+          transform="rotate(-90 0 11.5)"
+          fill="#9E9E9E"
+        />
+      </svg>
+    </div>
+  </div>
 </template>
 
+<script>
+import Timer from "./components/Timer.vue";
+
+export default {
+  name: "app",
+  components: {
+    Timer,
+  },
+  props: ["Timer"],
+  data() {
+    return {
+      timers: [],
+    };
+  },
+  methods: {
+    addTimer() {
+      this.timers.push(Timer.methods.newTimer());
+    },
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #e5e5e5;
 }
 
-nav {
-  padding: 30px;
+.container {
+  max-width: 775px;
+  margin: 75px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, max-content));
+  grid-gap: 45px 50px;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+[v-cloak] {
+  display: none;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+@media (max-width: 790px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 516px) {
+  .container {
+    max-width: 225px;
+  }
 }
 </style>

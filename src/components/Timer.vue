@@ -182,26 +182,6 @@ export default {
       this.timer.isStart = false;
       this.timer.isPause = true;
     },
-
-    newTimer() {
-      let newTimer = {
-        hour: 0,
-        minute: 0,
-        second: 0,
-        secondElement: "",
-        minuteElement: "",
-        hourElement: "",
-        interval: "",
-        start: "",
-        pause: "",
-        stop: "",
-        isStart: false,
-        isPause: true,
-        id: Date.now().toString(),
-      };
-
-      return newTimer;
-    },
   },
 };
 </script>

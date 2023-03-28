@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-for="item of timers" v-bind:key="item.id">
+    <div v-for="item of timers" v-bind:key="item">
       <Timer />
     </div>
     <div class="add" type="button" @click="addTimer">
@@ -35,12 +35,12 @@ export default {
   props: ["Timer"],
   data() {
     return {
-      timers: [Timer],
+      timers: 1,
     };
   },
   methods: {
     addTimer() {
-      this.timers.push(Timer.methods.newTimer());
+      this.timers++;
     },
   },
 };

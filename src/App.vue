@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div v-for="item of timers" v-bind:key="item.id">
-      <Timer :onAdd="addTimer" />
+      <Timer />
     </div>
     <div class="add" type="button" @click="addTimer">
       <svg

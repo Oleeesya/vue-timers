@@ -102,12 +102,6 @@
 <script>
 export default {
   name: "Timer",
-  props: {
-    onAdd: {
-      type: Function,
-      required: true,
-    },
-  },
   data() {
     return {
       timer: {
@@ -117,7 +111,6 @@ export default {
         secondElement: "",
         minuteElement: "",
         hourElement: "",
-
         interval: "",
         start: "",
         pause: "",
@@ -191,24 +184,21 @@ export default {
     },
 
     newTimer() {
-      let timer = {
-        hour: this.hour,
-        minute: this.minute,
-        second: this.second,
-        secondElement: this.secondElement,
-        minuteElement: this.minuteElement,
-        hourElement: this.hourElement,
-
-        interval: this.interval,
-        start: this.start,
-        pause: this.pause,
-        stop: this.stop,
-        isStart: this.isStart,
-        isPause: this.isPause,
+      let newTimer = {
+        hour: 0,
+        minute: 0,
+        second: 0,
+        secondElement: "",
+        minuteElement: "",
+        hourElement: "",
+        interval: "",
+        start: "",
+        pause: "",
+        stop: "",
+        isStart: false,
+        isPause: true,
         id: Date.now().toString(),
       };
-      let newTimer = Object.assign(timer);
-      newTimer.id = Date.now().toString();
 
       return newTimer;
     },
